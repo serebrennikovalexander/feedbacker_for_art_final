@@ -1,31 +1,21 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, viewsets, permissions, mixins, status
+from rest_framework import filters, mixins, permissions, status, viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from reviews.models import Category, Genre, Title, Review
+from reviews.models import Category, Genre, Review, Title
 from users.models import User
+
 from .filters import TitleFilter
-from .permissions import (
-    IsAdminOrSuperuserPermission,
-    TitlePermission,
-    ReviewPermission
-)
-from .serializers import (
-    AdminUserSerializer,
-    CategorySerializer,
-    CommentSerializer,
-    ConfirmationCodeSerializer,
-    GenreSerializer,
-    TitleSerializerRead,
-    TitleSerializerCreate,
-    ReviewSerializer,
-    TokenSerializer,
-    UserSerializer,
-)
+from .permissions import (IsAdminOrSuperuserPermission, ReviewPermission,
+                          TitlePermission)
+from .serializers import (AdminUserSerializer, CategorySerializer,
+                          CommentSerializer, ConfirmationCodeSerializer,
+                          GenreSerializer, ReviewSerializer,
+                          TitleSerializerCreate, TitleSerializerRead,
+                          TokenSerializer, UserSerializer)
 
 
 class CreateDestroyViewSet(

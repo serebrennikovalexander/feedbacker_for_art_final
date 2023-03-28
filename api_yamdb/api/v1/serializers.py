@@ -4,14 +4,11 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.generics import get_object_or_404
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator, UniqueValidator
-
-
-from reviews.models import Review, Comment, Title, Category, Genre
+from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import User
-from .utility import (
-    generate_confirmation_code,
-    send_email_with_verification_code
-)
+
+from .utility import (generate_confirmation_code,
+                      send_email_with_verification_code)
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -192,9 +189,8 @@ class ConfirmationCodeSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         validated_data['confirmation_code'] = generate_confirmation_code()
-        user = User.objects.create_user(**validated_data)
         send_email_with_verification_code(validated_data)
-        return user
+        return User.objects.create_user(**validated_data)
 
     def validate_username(self, value):
         if value == 'me':
