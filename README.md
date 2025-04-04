@@ -1,12 +1,12 @@
-# YaMDb final
+# feedbaker_for_art final
 # ![example workflow](https://github.com/serebrennikovalexander/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 ## Описание:
-### YaMDb final
-Проект создано на основе приложения [REST API для YaMDb](https://github.com/kultmet/api_yamdb)
+### feedbaker_for_art final
+Проект создано на основе приложения [feedbacker_for_art](https://github.com/kultmet/api_yamdb)
 
->YaMDb - это платформа для сбора отзывов и оценок по различным категориям.
+>feedbaker_for_art - это платформа для сбора отзывов и оценок по различным категориям.
 
-Приложение REST API для YaMDb было упаковано в контейнера с помощью технологии [Docker](https://www.docker.com/).
+Приложение feedbaker_for_art было упаковано в контейнера с помощью технологии [Docker](https://www.docker.com/).
 
 Для приложния настроены CI (continuous Integration) и CD (Continuous Deployment).
 CI и CD реализованы на основе облачного сервиса [GitHub Actions](https://github.com/features/actions).
